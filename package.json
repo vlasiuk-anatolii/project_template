@@ -5,12 +5,23 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel ./src/index.html --open"
+    "start": "parcel ./src/index.html --open",
+    "lint:html": "linthtml ./src/index.html",
+    "lint:css": "stylelint **/*.css",
+    "lint:js": "eslint ./src",
+    "lint": "concurrently \"npm run lint:html\" \"npm run lint:css\" \"npm run lint:js\""
   },
   "keywords": [],
   "author": "Vlasiuk Anatolii",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^1.12.4"
+    "@linthtml/linthtml": "^0.9.0",
+    "concurrently": "^7.4.0",
+    "eslint": "^8.24.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "parcel": "^1.12.4",
+    "stylelint": "^14.12.1",
+    "stylelint-config-standard": "^28.0.0"
   }
 }
